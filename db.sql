@@ -1,0 +1,10 @@
+#CREATE USER 'honeydba'@'localhost' IDENTIFIED BY 'honeydba';
+drop database if exists honey_log;
+create database honey_log;
+GRANT ALL PRIVILEGES ON honey_log.* TO 'honeydba'@'localhost';
+use honey_log;
+create table ip (id bigint(20) NOT NULL AUTO_INCREMENT key , addres varchar(255) default NULL) DEFAULT CHARSET=utf8;
+create table zone (id bigint(20) NOT NULL AUTO_INCREMENT key , zone varchar(255) default NULL) DEFAULT CHARSET=utf8;
+create table payload (id bigint(20) NOT NULL AUTO_INCREMENT key , verb varchar(255) default NULL, url varchar(255) default null) DEFAULT CHARSET=utf8;
+create table ips (id bigint(20) NOT NULL AUTO_INCREMENT key , provider varchar(255) default NULL) DEFAULT CHARSET=utf8 ;
+create table logs (id bigint(20) not null auto_increment key ,ip int default 0,  zone int default 0, payload int default 0, ips int default 0, time datetime default null) default charset=utf8;
